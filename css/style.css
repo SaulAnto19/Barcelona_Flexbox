@@ -19,6 +19,8 @@ colores a usar en la pagina
     max-width: 1000px;
     margin: auto;
     /* Flexbox */
+    display: flex;
+    flex-flow: row wrap;
 }
 
 body {
@@ -30,6 +32,11 @@ header {
     width: 100%;
     padding: 20px;
     /* Flexbox */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 header .logo {
@@ -51,6 +58,9 @@ header .logo a {
 header nav {
     width: 50%;
     /* Flexbox */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 header nav a {
@@ -60,6 +70,7 @@ header nav a {
     text-decoration: none;
     padding: 10px;
     /* Flexbox */
+    flex-grow: 1;
 }
 
 header nav a:hover {
@@ -70,6 +81,8 @@ header nav a:hover {
     background: #fff;
     padding: 20px;
     /* Flexbox */
+    flex: 1 1 70%;
+    /*flex: 1;*/
 }
 
 .main article {
@@ -89,6 +102,12 @@ aside {
     background: #154284;
     padding: 20px;
     /* Flexbox */
+    flex: 1 1 30%;
+    /*flex: 0 0 260px;*/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    flex-direction: column;
 }
 
 aside .widget {
@@ -102,11 +121,16 @@ footer {
     width: 100%;
     padding: 20px;
     /* Flexbox */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 footer .links {
     background: #551A8B;
     /* Flexbox */
+    display: flex;
+    flex-wrap: wrap;
 }
 
 footer .links a {
@@ -114,6 +138,8 @@ footer .links a {
     padding: 10px;
     text-align: center;
     text-decoration: none;
+    /*Flexbox*/
+    flex-grow: 1;
 }
 
 footer .links a:hover {
@@ -122,6 +148,7 @@ footer .links a:hover {
 
 footer .social {
     background: #551A8B;
+    font-size: 20px;
 }
 
 footer .social i {
@@ -138,3 +165,39 @@ footer .social i:hover {
 
 
 /*-----------------------@MEDIA SCREEN--------------------*/
+
+@media screen and (max-width: 800px) {
+    .contenedor {
+        flex-direction: column;
+    }
+    header {
+        flex-direction: column;
+        padding: 0;
+    }
+    header .logo {
+        margin: 20px 0;
+    }
+    header nav {
+        width: 100%;
+    }
+    aside {
+        flex-direction: row;
+        flex: 0;
+    }
+    aside .widget {
+        flex-grow: 1;
+        margin: 10px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    aside {
+        flex-direction: column;
+    }
+    footer {
+        justify-content: space-around;
+    }
+    footer .social {
+        margin: 20px 0;
+    }
+}
